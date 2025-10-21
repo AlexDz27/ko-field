@@ -1,0 +1,37 @@
+.t-1 {
+  background-color: black;
+  color: white;
+}
+
+.ol li {
+  margin-bottom: 1rem;
+}
+.ol li:last-child {margin-bottom: 0;}
+
+.code {
+  font-family: monospace;
+  background-color: rgb(213, 213, 213);
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+/* Text from vue-book */
+.gray {
+  color: gray;
+}
+.red {
+  color: red;
+}
+
+.crossed {
+  text-decoration: line-through;
+}
+.underlined {
+  text-decoration: underline;
+}
+.technical {
+  font-family: monospace;
+}
+.semi-transparent {
+  opacity: .3;
+}
