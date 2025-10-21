@@ -35,3 +35,16 @@
 .semi-transparent {
   opacity: .3;
 }
+
+.table-first-tr {
+  position: relative;
+}
+.table-first-tr::after {
+  content: "";
+  position: absolute;
+  left: 19.1rem;
+  width: 2px;
+  height: 6rem;
+  background-color: black;
+  opacity: .5;
+}
