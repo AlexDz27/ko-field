@@ -35,20 +35,3 @@
 .semi-transparent {
   opacity: .3;
 }
-
-.table-first-tr {
-  position: relative;
-}
-.table-first-tr::after {
-  content: "";
-  position: absolute;
-  left: 22.1rem;
-  width: 2px;
-  height: 9rem;
-  background-color: black;
-  opacity: .5;
-}
-
-.scratch-list li {
-  margin-bottom: .7rem;
-}
