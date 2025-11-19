@@ -1,3 +1,5 @@
+import clipboard from 'clipboardy'
+
 // 1. regexp на три слова, разделённых пробелом
 // 2. если две буквы Д, то убрать первую
 
@@ -32,18 +34,34 @@ const regex = /\p{L}+ \p{L}+ \p{L}+/u
 for (const entry of entries) {
   const match = entry.match(regex)
   if (match) {
-    console.log(match[0])
     newEntries.push(match[0])
   }
 }
 
 console.log('-------------------------------------')
 const regexDeleteD = /^д/i
-for (const entry2 of newEntries) {
-  const match = entry2.match(regexDeleteD)
+
+for (let i = 0; i < newEntries.length; i++) {
+  let ent = newEntries[i]
+  const match = ent.match(regexDeleteD)
   if (match) {
-    en
+    newEntries[i] = ent.slice(1)
   }
 }
 
-// console.log(entries)
+// Оставить только Фамилия Имя
+const regexLeaveSurnameName = /\p{L}+ \p{L}+/u
+const newEntries2 = []
+for (const entry of newEntries) {
+  const match = entry.match(regexLeaveSurnameName)
+  if (match) {
+    newEntries2.push(match[0])
+  }
+}
+
+// Заджоинить
+const finalStr = newEntries2.join(', ')
+
+console.log(finalStr)
+
+await clipboard.write(finalStr);
