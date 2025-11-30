@@ -1,26 +1,25 @@
+// TODO: \n on multiple entries for convenience
+
 import clipboard from 'clipboardy'
 
-// 1. regexp на три слова, разделённых пробелом
-// 2. если две буквы Д, то убрать первую
-
-const str = `
-1. ДБришен Федор Михайлович (2 ост, 27.11)
-2. ДБыстров Александр Сергеевич (0 ост)
-3. ДКарпин Роман Денисович (2 ост, 27.11)
-4. ДКлимук Дмитрий Андреевич (2 ост, 27.11)
-5. ДКолодинский Тимофей Юрьевич 15 плятат (0 ост)
-6. ДКолодич Маргарита Вадимовна (3 ост, 27.11)
-7. ДКурашевич Анастасия Юрьевна платят 14 (2 ост, 27.11)
-8. ДЛеонюк Михаил Олегович (2 ост, 27.11)
-9. ДПильчук Оливия Ильинична (2 ост, 27.11)
-10. ДСухаревич Кира Юрьевна (2 ост, 27.11)
-11. ДТрубчик Мия Максимовна (2 ост, 27.11)
-12. ДХмельницкий Гордей Витальевич (2 ост, 27.11)
-13. ДШикун София Максимовна заплатят 20 (0 ост)
-14. Куняшевич Илья Витальевич (0 ост)
+const input = `
+1. ДАлексиевич Кира Александровна (1 ост, 30.11)
+2. ДБаранчук Давид Анатольевич (1 ост, 30.11)
+3. ДВенско Александр Владимирович (1 ост, 30.11)
+4. ДГордиевич Захар Олегович (1 ост, 30.11)
+5. ДГречка Евгений Дмитриевич (1 ост, 30.11)
+6. ДКиселев Глеб Денисович (1 ост, 30.11)
+7. ДКулик Алексей Александрович (1 ост, 30.11)
+8. ДЛевонюк Дарья Антоновна (1 ост, 30.11)
+9. ДПильщикова Алиса Дмитриевна (1 ост, 30.11)
+10. ДСачко Матвей Романович (1 ост, 30.11)
+11. ДТроцюк София Максимовна (0 ост)
+12. ДТурченок Артём Ярославович (1 ост, 30.11)
+13. ДЯкунова Эмилия Эльдаровна (1 ост, 30.11)
+14. ДЯчник Арсений Александрович (1 ост, 30.11)
 `
 
-const entries = str.split('\n')
+const entries = input.split('\n')
 if (entries[0].trim() === '') {
   entries.shift()
 }
@@ -28,39 +27,26 @@ if (entries[entries.length - 1].trim() === '') {
   entries.pop()
 }
 
-const newEntries = []
-const regex = /\p{L}+ \p{L}+ \p{L}+/u
+const outputEntries = []
+const regex = /\p{L}+ \p{L}+/u
 for (const entry of entries) {
   const match = entry.match(regex)
   if (match) {
-    newEntries.push(match[0])
+    outputEntries.push(match[0])
   }
 }
-
-console.log('-------------------------------------')
 const regexDeleteD = /^д/i
-
-for (let i = 0; i < newEntries.length; i++) {
-  let ent = newEntries[i]
-  const match = ent.match(regexDeleteD)
+for (let i = 0; i < outputEntries.length; i++) {
+  let entry = outputEntries[i]
+  const match = entry.match(regexDeleteD)
   if (match) {
-    newEntries[i] = ent.slice(1)
-  }
-}
-
-// Оставить только Фамилия Имя
-const regexLeaveSurnameName = /\p{L}+ \p{L}+/u
-const newEntries2 = []
-for (const entry of newEntries) {
-  const match = entry.match(regexLeaveSurnameName)
-  if (match) {
-    newEntries2.push(match[0])
+    outputEntries[i] = entry.slice(1)
   }
 }
 
 // Заджоинить
-const finalStr = newEntries2.join(', ')
+const output = outputEntries.join(', ')
 
-console.log(finalStr)
-
-await clipboard.write(finalStr);
+// Вывести и скопировать в буфер обмена
+console.log(output)
+await clipboard.write(output);
