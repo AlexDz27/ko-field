@@ -35,3 +35,29 @@
 .semi-transparent {
   opacity: .3;
 }
+
+
+
+.ex {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: gainsboro;
+}
+
+
+.qwe {
+  position: absolute;
+  top: 15px;
+  left: -25px;
+}
+
+
+.mmm {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ex-c {
+  display: flex;
+  justify-content: space-around;
+}
