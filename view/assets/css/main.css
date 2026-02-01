@@ -1,4 +1,7 @@
+/* Tweak browser-specific styles */
 @import 'browser-base.css';
+
+/* The rest - are *app*-specific styles */
 @import 'base.css';
 
 @import 'grid.css';
@@ -7,4 +10,5 @@
 
 @import 'atoms.css';
 
+/* In this file you can add sloppy architectured styles when you're lazy */
 @import 'heap.css';

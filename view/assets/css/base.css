@@ -7,3 +7,20 @@
   text-decoration: none;
   color: inherit;
 }
+
+table {
+  font-family: sans-serif;
+  border-collapse: collapse; /* Merges the borders of cells */
+  width: 50%;
+}
+td, th {
+  border: 1px solid #dddddd; /* Adds a border to cells */
+  text-align: left;
+  padding: 8px;
+}
+td {
+  font-size: .8em;
+}
+tr:nth-child(even) {
+  background-color: #f2f2f2; /* Adds zebra-striping to rows */
+}
