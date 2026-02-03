@@ -1,3 +1,19 @@
-.tac {
+/* Text */
+.tac, .center, .c {
   text-align: center;
+}
+.underlined, .underline, .u {
+  text-decoration: underline;
+}
+.bold, .b {
+  font-weight: bold;
+}
+.italic, .ital, .i {
+  font-style: italic;
+}
+.small, .sm, .s {
+  font-size: .7em;
+}
+.big {
+  font-size: 1.65em;
 }
